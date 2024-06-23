@@ -106,13 +106,11 @@ jobs:
         with:
           # Это параметр воркфлоу, указывающий нужную версию Node.js
           node-version: 18
-        
       - name: Install dependencies
         # Эта команда устанавливает зависимости для фронтенда
         run: |
           cd frontend/
           npm ci
-        
       - name: Test frontend
         # Запускаем тесты
         run: |
@@ -196,4 +194,3 @@ jobs:
             sudo docker compose -f docker-compose.production.yml exec backend python manage.py migrate
             sudo docker compose -f docker-compose.production.yml exec backend python manage.py collectstatic
             sudo docker compose -f docker-compose.production.yml exec backend cp -r /app/collected_static/. /backend_static/static/
-
